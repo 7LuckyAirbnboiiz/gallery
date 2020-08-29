@@ -59,7 +59,9 @@
 ```json
     {
       "id": "Number",
-      "description": "String"
+      "description": "String",
+      "superhost": "Boolean",
+      "location": "String"
     }
 ```
 
