@@ -30,6 +30,7 @@ export default () => {
     axios.get(`/properties/${id}`)
       .then((house) => {
         let houseInfo = house.data[0];
+        console.log(houseInfo);
         setSuperhost(houseInfo.superhost);
         setHome(houseInfo);
         let arrayImages = [
@@ -39,6 +40,7 @@ export default () => {
           ...houseInfo.images.bedrooms,
           ...houseInfo.images.bathrooms,
         ];
+        console.log(arrayImages)
         setAllImages(arrayImages);
         setLoading(false);
       })

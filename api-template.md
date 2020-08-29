@@ -18,27 +18,14 @@
       "reviewTotal": "Number",
       "superhost": "Boolean",
       "location": "String",
-      "images": {
-        "house": { //change this to array of objects
-          "imageURL": "String",
-          "description": "String"
-        },
-        "backyard": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "kitchen": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "bedrooms": "Array",
-        "bathrooms": "Array"
-      }
+      "images": [
+        {"imageURL": "String", "description": "String"}
+      ]
     }
 ```
 
 ### Add room
-  * POST `/rooms/:id`
+  * POST `/rooms`
 
 **Success Status Code:** `201`
 
@@ -52,22 +39,9 @@
       "reviewTotal": "Number",
       "superhost": "Boolean",
       "location": "String",
-      "images": {
-        "house": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "backyard": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "kitchen": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "bedrooms": "Array",
-        "bathrooms": "Array"
-      }
+      "images": [
+        {"imageURL": "String", "description": "String"}
+      ]
     }
 ```
 
@@ -85,27 +59,7 @@
 ```json
     {
       "id": "Number",
-      "description": "String",
-      "starRating": "Number",
-      "reviewTotal": "Number",
-      "superhost": "Boolean",
-      "location": "String",
-      "images": {
-        "house": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "backyard": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "kitchen": {
-          "imageURL": "String",
-          "description": "String"
-        },
-        "bedrooms": "Array",
-        "bathrooms": "Array"
-      }
+      "description": "String"
     }
 ```
 
@@ -114,6 +68,55 @@
 
 **Path Parameters:**
   * `id` room id
+
+**Success Status Code:** `204`
+
+
+
+### Add images
+  * POST `/rooms/:id/images`
+
+**Path Parameters:**
+  * `id` room id
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "id": "Number",
+      "imageURL": "String",
+      "description": "String"
+    }
+```
+
+
+### Update images info
+  * PATCH `/rooms/:id/images/:imagesId`
+
+**Path Parameters:**
+  * `id` room id
+  * `imagesId` image id
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "id": "Number",
+      "imagesId": "Number",
+      "description": "String"
+    }
+```
+
+### Delete images
+  * DELETE `/rooms/:id/images/:imagesId`
+
+**Path Parameters:**
+  * `id` room id
+  * `imagesId` image id
 
 **Success Status Code:** `204`
 
